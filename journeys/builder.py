@@ -2,7 +2,7 @@ import streamlit as st
 from loguru import logger
 from snowflake.connector import ProgrammingError
 
-from admin_apps.shared_utils import (
+from app_utils.shared_utils import (
     GeneratorAppScreen,
     format_snowflake_context,
     get_available_databases,
@@ -68,7 +68,7 @@ def update_tables() -> None:
     st.session_state["selected_tables"] = valid_selected_tables
 
 
-@st.dialog("Selecting your tables", width="large")
+@st.experimental_dialog("Selecting your tables", width="large")
 def table_selector_dialog() -> None:
     st.write(
         "Please fill out the following fields to start building your semantic model."
